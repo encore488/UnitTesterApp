@@ -11,12 +11,12 @@ public class TaskTest {
     //Initialize a Task object
     Task goodTaskA = new Task("theBest", "Washing", "Wash the dishes");
     Task badTaskA = new Task("theVeryWorst really. This name is too long!", "Laundry or something along those lines, I guess.", "We really do love to flush the toilet, don't we? We are just always trying to flush toilets. I'll do it 5, maybe 10 or 15 times before everything really goes down.");
-    Task badTaskB = new Task(null, null, null);
+    Task badTaskB = new Task(null, "Cassius", "Shouldn't be saved because this thing has an invalid name.");
 
     @Test
     public void idNotNull(){
-        assertNotNull(goodTaskA.getTaskId());
-        assertNull(badTaskB);
+        assertNotNull(goodTaskA.getDescription());
+        assertNull(badTaskB.getDescription());
     }
     @Test
     public void nameNotNull(){

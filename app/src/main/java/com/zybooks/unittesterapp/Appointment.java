@@ -6,19 +6,21 @@ import java.time.LocalDate;
 
 public class Appointment {
     //Each appointment has an id, date, and description
-    private static String appointmentId;
+    private String appointmentId;
     private LocalDate appointmentDate;
     private String description;
 
 
     //You want to create an appointment?
     public Appointment(String appointmentId, LocalDate appointmentDate, String description) {
-        if(appointmentId.length() < 11 && appointmentDate != null &&
-                !appointmentDate.isBefore(LocalDate.now()) && description != null &&
-                description.length() <= 50) {
-            Appointment.appointmentId = appointmentId;
-            this.appointmentDate = appointmentDate;
-            this.description = description;
+        if (appointmentId != null) {
+            if (appointmentId.length() < 11 && appointmentDate != null &&
+                    !appointmentDate.isBefore(LocalDate.now()) && description != null &&
+                    description.length() <= 50) {
+                this.appointmentId = appointmentId;
+                this.appointmentDate = appointmentDate;
+                this.description = description;
+            }
         }
     }
 

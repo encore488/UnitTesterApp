@@ -1,6 +1,8 @@
 package com.zybooks.unittesterapp;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -16,33 +18,18 @@ public class ContactServiceTest {
 
     ContactService goodContactService = new ContactService();
 
-    @BeforeEach
-    void init(){
-        goodContactService.addContact(goodContactA);
-    }
-
 
     //The contact service shall be able to add contacts with a unique ID
     @Test
     public void canAddContact(){
-        assertTrue(goodContactService.contacts.containsValue(goodContactA));
+        goodContactService.addContact(goodContactA);
+        assertNotNull(goodContactService.getContactId(goodContactA));
     }
     // The contact service shall be able to delete contacts per contact ID.
     @Test
     public void canDelete(){
-        goodContactService.deleteContact(goodContactA.getContactId());
-        assertFalse(goodContactService.contacts.containsKey(goodContactA.getContactId()));
-    }
-    //The contact service shall be able to update contact fields per contact ID
-   /* @Test
-    public void canUpdateContactInfo(){
-        goodContactService.updateContact("kl09ex&", "Globby", "Goobert", "4548881212", "Hobert Avenue");
-        assertEquals("Globby", goodContactA.getFirstName());
-    }*/
-
-    @AfterEach
-    void tearDown(){
-        ContactService goodContactService = new ContactService();
-        goodContactService.addContact(goodContactA);
+        goodContactService.addContact(goodContactB);
+        goodContactService.deleteContact(goodContactB.getContactId());
+        assertNull(goodContactService.getContactId(goodContactB));
     }
 }

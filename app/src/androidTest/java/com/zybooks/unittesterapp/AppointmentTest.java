@@ -37,6 +37,7 @@ public class AppointmentTest {
         //We can't make an appointment in the past
         Appointment badAppointmentD = new Appointment("Hendrix", LocalDate.of(2002, 12, 25), "A valid description");
         assertNull(badAppointmentD.getAppointmentId());
+
     }
     @Test
     public void descriptionNotNull(){

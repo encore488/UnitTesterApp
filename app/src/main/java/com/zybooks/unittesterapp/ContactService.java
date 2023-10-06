@@ -27,6 +27,15 @@ public class ContactService {
             Log.e(TAG, "Duplicate ID or null contact");
         }
     }
+    public String getContactId(Contact contact) {
+        if (contact != null && contacts.containsKey(contact.getContactId())) {
+            return contact.getContactId();
+        } else {
+            // Handle duplicate ID or null contact
+            Log.e(TAG, "We can't find that contact");
+            return null;
+        }
+    }
 
         // Delete a contact by contact ID
         public void deleteContact (String contactId){

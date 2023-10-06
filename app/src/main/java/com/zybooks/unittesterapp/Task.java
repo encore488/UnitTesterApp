@@ -4,17 +4,20 @@ import android.util.Log;
 
 public class Task {
     //Each task has an id, name and description
-    private static String taskId;
+    private String taskId;
     private String taskName;
     private String description;
 
 
     //You want to create a Task?
     public Task(String taskId, String taskName, String description) {
-        if(taskId.length() < 11) {
-            Task.taskId = taskId;
-            this.taskName = taskName;
-            this.description = description;
+        if(taskId != null){
+            if(taskId.length() < 11) {
+                this.taskId = taskId;
+                this.taskName = taskName;
+                this.description = description;
+            }
+
         }
     }
 
